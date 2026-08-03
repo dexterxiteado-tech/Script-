@@ -9,6 +9,11 @@
       "password": "e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e803286b4446",
       "role": "user",
       "created": "2026-08-03T07:14:02.830949"
+    },
+    "Chinita": {
+      "password": "502273fc7cf320f22edda5f54cf37ebf0ba2546f65014dbb81ec406b4939e379",
+      "role": "admin",
+      "created": "2026-08-03T12:00:00"
     }
   }
 }
