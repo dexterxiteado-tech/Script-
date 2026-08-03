@@ -14,6 +14,11 @@
       "password": "b2b2f104d32c638903e151a9b20d6e27b41d8c0c84cf8458738f83ca2f1dd744",
       "role": "admin",
       "created": "2026-08-03T07:45:24.247362"
+    },
+    "1234": {
+      "password": "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
+      "role": "user",
+      "created": "2026-08-03T07:53:33.010126"
     }
   }
 }
