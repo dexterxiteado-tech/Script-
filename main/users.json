@@ -9,6 +9,12 @@
       "password": "e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e803286b4446",
       "role": "user",
       "created": "2026-08-03T09:10:43.550053"
+    },
+    "dexter-modz": {
+      "password": "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
+      "role": "user",
+      "device_id": "u0_a2768",
+      "created": "2026-08-04T12:07:05.914981"
     }
   }
 }
