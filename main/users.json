@@ -15,6 +15,13 @@
       "role": "user",
       "device_id": "u0_a2768",
       "created": "2026-08-04T12:07:05.914981"
+    },
+    "puta": {
+      "password": "489a845537412def5431c0b0022bac0022dd00dadcb971bf375c862e5b1f0085",
+      "role": "user",
+      "device_id": "u0_a2768",
+      "created": "2026-08-04T19:17:37.717727",
+      "expiration": "1"
     }
   }
 }
