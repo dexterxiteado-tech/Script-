@@ -13,6 +13,13 @@
       "device_id": "u0_a2768",
       "created": "2026-08-04T19:40:14.444813",
       "expiration": "30"
+    },
+    "mia": {
+      "password": "2e0d64674bbc0b73e11e32d545d55291d031a038b5b18189710e04ce504fa52b",
+      "role": "user",
+      "device_id": "u0_a2768",
+      "created": "2026-08-04T20:01:16.176149",
+      "expiration": "30"
     }
   }
 }
