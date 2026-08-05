@@ -20,6 +20,13 @@
       "device_id": "u0_a2768",
       "created": "2026-08-04T20:01:16.176149",
       "expiration": "30"
+    },
+    "MIAKHALIFA": {
+      "password": "79f06f8fde333461739f220090a23cb2a79f6d714bee100d0e4b4af249294619",
+      "role": "admin",
+      "device_id": "u0_a2768",
+      "created": "2026-08-04T20:12:46.628177",
+      "expiration": "7"
     }
   }
 }
