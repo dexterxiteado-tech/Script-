@@ -27,6 +27,13 @@
       "device_id": "u0_a2768",
       "created": "2026-08-05T23:09:13.903906",
       "expiration": "15"
+    },
+    "Danielsrt2026": {
+      "password": "7297db81c2f7916e25b9593f8c8785e1aa1487fa9f3961c50b7cc5f1a541bc82",
+      "role": "admin",
+      "device_id": "u0_a2768",
+      "created": "2026-08-05T23:14:25.492540",
+      "expiration": "15"
     }
   }
 }
