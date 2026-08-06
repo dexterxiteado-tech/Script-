@@ -13,6 +13,13 @@
       "device_id": "u0_a2768",
       "created": "2026-08-05T21:15:28.251318",
       "expiration": "30"
+    },
+    "Daniel-Srt": {
+      "password": "2d5b70a370cdfbc281e9d28cf8d786cf421fc00e3f412c2af5d9da91327774a9",
+      "role": "user",
+      "device_id": "u0_a2768",
+      "created": "2026-08-05T22:55:35.159883",
+      "expiration": "15"
     }
   }
 }
