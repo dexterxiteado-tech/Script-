@@ -20,6 +20,13 @@
       "device_id": "u0_a2768",
       "created": "2026-08-08T17:27:58.255816",
       "expiration": "30"
+    },
+    "SUKUNA": {
+      "password": "10a09b23d8e2fd33834b1b5c4a1e9709bf127e106132a83336b63fd81128a9b2",
+      "role": "admin",
+      "device_id": "u0_a2768",
+      "created": "2026-08-09T01:24:12.978294",
+      "expiration": "15"
     }
   }
 }
