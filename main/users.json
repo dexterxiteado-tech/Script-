@@ -34,6 +34,13 @@
       "device_id": "u0_a2768",
       "created": "2026-08-15T19:33:32.581480",
       "expiration": "30"
+    },
+    "pito": {
+      "password": "2fe4c4c9d4ed3cb1bdabe4b8c2040abc385ede0e68d641f2f982961c25124058",
+      "role": "user",
+      "device_id": "u0_a2768",
+      "created": "2026-08-15T21:59:05.994589",
+      "expiration": "1"
     }
   }
 }
