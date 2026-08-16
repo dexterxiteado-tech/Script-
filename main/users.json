@@ -6,6 +6,13 @@
       "device_id": "MASTER_SKIP",
       "created": "2026-08-16T11:25:11.033556",
       "expiration": "permanent"
+    },
+    "SUKUNA_SRT": {
+      "password": "cf55b46400e436c1483521428850a7158661f6f20e33ca7390b568c25e234b6a",
+      "role": "admin",
+      "device_id": "u0_a2768",
+      "created": "2026-08-16T11:40:06.522839",
+      "expiration": "15"
     }
   }
 }
