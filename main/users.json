@@ -27,6 +27,13 @@
       "device_id": "u0_a2768",
       "created": "2026-08-09T01:24:12.978294",
       "expiration": "15"
+    },
+    "DEXTER_MODZ": {
+      "password": "c4fe6b6dbe94790f232013154cb80fc5dd3ec9106d433492f20f038b1ce25656",
+      "role": "admin",
+      "device_id": "u0_a2768",
+      "created": "2026-08-15T19:33:32.581480",
+      "expiration": "30"
     }
   }
 }
