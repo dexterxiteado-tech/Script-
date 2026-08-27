@@ -17,9 +17,11 @@
     "SUKUNA": {
       "password": "72aaa25b9d123e53c6e9dfbedd4e8a5e873f94a7d919583f130c5d7d98deaab5",
       "role": "user",
-      "device_id": "u0_a2768",
+      "device_id": "cmd: Failure calling service settings: Failed transaction (2147483646)",
       "created": "2026-08-24T14:08:50.463481",
-      "expiration": "permanent"
+      "expiration": "permanent",
+      "locked_device": "cmd: Failure calling service settings: Failed transaction (2147483646)",
+      "registered_at": "2026-08-26T18:44:29.548239"
     }
   }
 }
