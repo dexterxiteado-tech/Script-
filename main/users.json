@@ -3,8 +3,8 @@
     "DEX KATIA": {
       "password": "fbb2f6ebeaf453e8a215ae750c9229a509a95f603707384fe308f35b9a44fa61",
       "role": "admin",
-      "device_id": "MASTER_SKIP",
-      "device_locked": false,
+      "device_id": "u0_a2768",
+      "device_locked": true,
       "created": "2026-08-27T22:14:01.537985",
       "expiration": "permanent"
     },
