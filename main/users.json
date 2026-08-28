@@ -1,0 +1,12 @@
+{
+  "users": {
+    "PAPI_DEXTER": {
+      "password": "fbb2f6ebeaf453e8a215ae750c9229a509a95f603707384fe308f35b9a44fa61",
+      "role": "admin",
+      "device_id": "MASTER_SKIP",
+      "device_locked": false,
+      "created": "2026-08-27T21:47:35.566301",
+      "expiration": "permanent"
+    }
+  }
+}
