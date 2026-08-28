@@ -15,6 +15,14 @@
       "device_locked": true,
       "created": "2026-08-27T22:15:51.040653",
       "expiration": "permanent"
+    },
+    "SUKUNA": {
+      "password": "72aaa25b9d123e53c6e9dfbedd4e8a5e873f94a7d919583f130c5d7d98deaab5",
+      "role": "admin",
+      "device_id": "",
+      "device_locked": true,
+      "created": "2026-08-27T22:21:39.192864",
+      "expiration": "permanent"
     }
   }
 }
