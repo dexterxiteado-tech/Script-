@@ -15,6 +15,14 @@
       "device_locked": true,
       "created": "2026-08-27T22:53:47.250050",
       "expiration": "permanent"
+    },
+    "SIU": {
+      "password": "1e6861b1c2d8e01983fefd34e64ba3bdbe009e05f183f00b382307cdd543f820",
+      "role": "user",
+      "device_id": "",
+      "device_locked": true,
+      "created": "2026-08-31T14:33:28.103654",
+      "expiration": "1"
     }
   }
 }
