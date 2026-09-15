@@ -5,7 +5,7 @@ import secrets
 import hashlib
 import requests
 from datetime import datetime, timedelta
-from flask import Flask, jsonify, request, session
+from flask import Flask, jsonify, request, session, send_from_directory
 
 app = Flask(__name__)
 app.secret_key = os.environ.get("FLASK_SECRET_KEY", secrets.token_hex(32))
@@ -17,6 +17,7 @@ GITHUB_OWNER = os.environ.get("GITHUB_OWNER")
 GITHUB_REPO = os.environ.get("GITHUB_REPO")
 GITHUB_PATH = os.environ.get("GITHUB_PATH", "main/users.json")
 CUTY_API_URL = "https://cuty.io/api"
+PUBLIC_URL = "https://script-49pe.onrender.com"
 
 # ==================== FUNCIONES AUXILIARES ====================
 
@@ -82,10 +83,20 @@ def generar_enlace_cuty(destino):
             print(f"Error Cuty.io: {data.get('message', 'desconocido')}")
     return None
 
-# ==================== RUTAS ====================
+# ==================== RUTAS DE LOS HTML ====================
 
 @app.route("/")
 def home():
+    return send_from_directory(".", "index.html")
+
+@app.route("/key.html")
+def key_page():
+    return send_from_directory(".", "key.html")
+
+# ==================== RUTAS DE LA API ====================
+
+@app.route("/api/status")
+def status():
     return "Backend Dexter Modz activo ✅"
 
 @app.route("/api/step/<int:step>")
@@ -96,8 +107,7 @@ def get_short_link(step):
     if step > current + 1:
         return jsonify({"error": "Debes completar los pasos en orden"}), 403
     session["current_step"] = step
-    # ⚠️ CAMBIA ESTO POR LA URL DE TU WEB (Netlify, GitHub Pages, etc.)
-    destino = f"https://TU_WEB_URL/?step={step}"
+    destino = f"{PUBLIC_URL}/?step={step}"
     short_url = generar_enlace_cuty(destino)
     if short_url:
         return jsonify({"url": short_url, "step": step})
