@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dexter Modz - Generar Key</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
+        body {
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            padding: 20px;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px 30px;
+            max-width: 450px;
+            width: 100%;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #00f5ff, #ff00c8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .key-box {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(0, 255, 100, 0.1);
+            border: 2px solid #00ff64;
+            border-radius: 12px;
+            word-break: break-all;
+            font-family: monospace;
+            font-size: 16px;
+            color: #00ff64;
+        }
+        .btn {
+            width: 100%;
+            padding: 15px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            background: linear-gradient(90deg, #00f5ff, #0080ff);
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+        .btn:hover { transform: translateY(-2px); }
+        .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+        .status { margin-top: 15px; font-size: 14px; color: #ffcc00; }
+        .copy-btn {
+            background: linear-gradient(90deg, #00ff64, #00cc50);
+            display: none;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 ¡Último Paso!</h1>
+        <p style="color:#aaa; margin-bottom:20px;">Haz clic para generar tu key de 1 hora</p>
+
+        <button class="btn" id="btnGenerate" onclick="generateKey()">
+            🔑 Generar Key
+        </button>
+
+        <div class="status" id="status"></div>
+
+        <div class="key-box" id="keyBox"></div>
+
+        <button class="btn copy-btn" id="btnCopy" onclick="copyKey()">
+            📋 Copiar Key
+        </button>
+    </div>
+
+    <script>
+        const BACKEND_URL = "https://TU-APP.onrender.com";
+        let generatedKey = "";
+
+        async function generateKey() {
+            document.getElementById('btnGenerate').disabled = true;
+            document.getElementById('status').textContent = "⏳ Generando...";
+
+            try {
+                const response = await fetch(`${BACKEND_URL}/api/generate-key`, { method: 'POST' });
+                const data = await response.json();
+
+                if (data.key) {
+                    generatedKey = data.key;
+                    document.getElementById('keyBox').innerHTML =
+                        `<b>Usuario:</b> ${data.usuario}<br>` +
+                        `<b>Password:</b> ${data.password}`;
+                    document.getElementById('keyBox').style.display = "block";
+                    document.getElementById('btnCopy').style.display = "block";
+                    document.getElementById('status').textContent = "✅ Key generada. Válida por 1 hora.";
+                } else {
+                    document.getElementById('status').textContent = "❌ " + (data.error || "Error");
+                    document.getElementById('btnGenerate').disabled = false;
+                }
+            } catch (error) {
+                document.getElementById('status').textContent = "❌ Error de conexión";
+                document.getElementById('btnGenerate').disabled = false;
+            }
+        }
+
+        function copyKey() {
+            if (!generatedKey) return;
+            navigator.clipboard.writeText(generatedKey).then(() => {
+                document.getElementById('btnCopy').textContent = "✅ ¡Copiada!";
+                setTimeout(() => {
+                    document.getElementById('btnCopy').textContent = "📋 Copiar Key";
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dexter Modz - Free Key</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
+        body {
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            padding: 20px;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px 30px;
+            max-width: 450px;
+            width: 100%;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 8px;
+            background: linear-gradient(90deg, #00f5ff, #ff00c8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .subtitle { color: #aaa; font-size: 14px; margin-bottom: 25px; }
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: #fff;
+        }
+        .btn-youtube {
+            background: linear-gradient(90deg, #ff0000, #cc0000);
+            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4);
+        }
+        .btn-youtube:hover { transform: translateY(-2px); }
+        .btn-key {
+            background: linear-gradient(90deg, #00f5ff, #0080ff);
+            box-shadow: 0 4px 15px rgba(0, 128, 255, 0.4);
+        }
+        .btn-key:hover { transform: translateY(-2px); }
+        .btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+        .counter {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #00f5ff;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 15px;
+        }
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #00f5ff, #ff00c8);
+            transition: width 0.4s ease;
+        }
+        .status { margin-top: 15px; font-size: 14px; color: #ffcc00; min-height: 20px; }
+        .footer { margin-top: 25px; font-size: 12px; color: #666; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔑 Dexter Modz - Free Key</h1>
+        <p class="subtitle">Sigue los pasos para obtener tu key gratis de 1 hora</p>
+
+        <a href="https://youtube.com/@TU_CANAL_AQUI" target="_blank" class="btn btn-youtube">
+            ▶️ Seguir en YouTube
+        </a>
+
+        <button class="btn btn-key" id="btnGetKey" onclick="startProcess()">
+            🎁 Get Free Key
+        </button>
+
+        <div class="counter" id="counter">0/10</div>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <div class="status" id="status"></div>
+
+        <div class="footer">
+            © 2026 Dexter Modz. Todos los derechos reservados.
+        </div>
+    </div>
+
+    <script>
+        const BACKEND_URL = "https://TU-APP.onrender.com";
+        const TOTAL_STEPS = 10;
+        let currentStep = 0;
+
+        async function startProcess() {
+            currentStep = 0;
+            document.getElementById('status').textContent = "Iniciando...";
+            document.getElementById('btnGetKey').disabled = true;
+            await nextStep();
+        }
+
+        async function nextStep() {
+            if (currentStep >= TOTAL_STEPS) {
+                await generateKey();
+                return;
+            }
+            currentStep++;
+            document.getElementById('counter').textContent = `${currentStep}/${TOTAL_STEPS}`;
+            document.getElementById('progressFill').style.width = ((currentStep / TOTAL_STEPS) * 100) + "%";
+
+            try {
+                const response = await fetch(`${BACKEND_URL}/api/step/${currentStep}`);
+                const data = await response.json();
+
+                if (data.url) {
+                    document.getElementById('status').textContent = `Paso ${currentStep}/${TOTAL_STEPS} - Abriendo...`;
+                    window.location.href = data.url;
+                } else {
+                    document.getElementById('status').textContent = "❌ Error: " + (data.error || "No se pudo obtener el enlace");
+                    document.getElementById('btnGetKey').disabled = false;
+                }
+            } catch (error) {
+                document.getElementById('status').textContent = "❌ Error de conexión";
+                document.getElementById('btnGetKey').disabled = false;
+            }
+        }
+
+        async function generateKey() {
+            document.getElementById('status').textContent = "✅ ¡Completaste los 10 pasos! Generando key...";
+            try {
+                const response = await fetch(`${BACKEND_URL}/api/generate-key`, { method: 'POST' });
+                const data = await response.json();
+
+                if (data.key) {
+                    document.getElementById('status').innerHTML =
+                        `✅ <b>Key generada:</b><br><br>` +
+                        `Usuario: <code>${data.usuario}</code><br>` +
+                        `Password: <code>${data.password}</code><br><br>` +
+                        `⏰ Válida por 1 hora`;
+                } else {
+                    document.getElementById('status').textContent = "❌ " + (data.error || "Error al generar key");
+                }
+            } catch (error) {
+                document.getElementById('status').textContent = "❌ Error de conexión";
+            }
+            document.getElementById('btnGetKey').disabled = false;
+        }
+
+        window.addEventListener('load', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const step = urlParams.get('step');
+            if (step && parseInt(step) > 0) {
+                currentStep = parseInt(step) - 1;
+                document.getElementById('counter').textContent = `${currentStep}/${TOTAL_STEPS}`;
+                document.getElementById('progressFill').style.width = ((currentStep / TOTAL_STEPS) * 100) + "%";
+                nextStep();
+            }
+        });
+    </script>
+</body>
+</html>
