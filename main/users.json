@@ -32,6 +32,15 @@
       "created": "2026-09-16T01:14:43.554706",
       "expira_en": "2026-09-16T02:14:43.554706",
       "temporal": true
+    },
+    "DEX_46F9F5": {
+      "password": "28776c4668fa102eeedfe5e66653bf5a98e0f8cbf8972e585dcbee53a2b0bdc6",
+      "role": "user",
+      "device_id": "",
+      "device_locked": false,
+      "created": "2026-09-16T03:25:13.638963",
+      "expira_en": "2026-09-16T04:25:13.638963",
+      "temporal": true
     }
   }
 }
