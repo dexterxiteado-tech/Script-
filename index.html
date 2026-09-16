@@ -115,11 +115,23 @@
         const BACKEND_URL = "https://script-49pe.onrender.com";
         const TOTAL_STEPS = 10;
         let currentStep = 0;
+        let sessionToken = "";
 
         async function startProcess() {
-            currentStep = 0;
             document.getElementById('status').textContent = "Iniciando...";
             document.getElementById('btnGetKey').disabled = true;
+
+            try {
+                const r = await fetch(`${BACKEND_URL}/api/start`);
+                const d = await r.json();
+                sessionToken = d.token;
+            } catch (e) {
+                document.getElementById('status').textContent = "❌ Error al iniciar";
+                document.getElementById('btnGetKey').disabled = false;
+                return;
+            }
+
+            currentStep = 0;
             await nextStep();
         }
 
@@ -133,14 +145,14 @@
             document.getElementById('progressFill').style.width = ((currentStep / TOTAL_STEPS) * 100) + "%";
 
             try {
-                const response = await fetch(`${BACKEND_URL}/api/step/${currentStep}`);
+                const response = await fetch(`${BACKEND_URL}/api/step/${currentStep}?token=${sessionToken}`);
                 const data = await response.json();
 
                 if (data.url) {
                     document.getElementById('status').textContent = `Paso ${currentStep}/${TOTAL_STEPS} - Abriendo...`;
                     window.location.href = data.url;
                 } else {
-                    document.getElementById('status').textContent = "❌ Error: " + (data.error || "No se pudo obtener el enlace");
+                    document.getElementById('status').textContent = "❌ " + (data.error || "Error");
                     document.getElementById('btnGetKey').disabled = false;
                 }
             } catch (error) {
@@ -152,7 +164,11 @@
         async function generateKey() {
             document.getElementById('status').textContent = "✅ ¡Completaste los 10 pasos! Generando key...";
             try {
-                const response = await fetch(`${BACKEND_URL}/api/generate-key`, { method: 'POST' });
+                const response = await fetch(`${BACKEND_URL}/api/generate-key`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ token: sessionToken })
+                });
                 const data = await response.json();
 
                 if (data.key) {
@@ -162,7 +178,7 @@
                         `Password: <code>${data.password}</code><br><br>` +
                         `⏰ Válida por 1 hora`;
                 } else {
-                    document.getElementById('status').textContent = "❌ " + (data.error || "Error al generar key");
+                    document.getElementById('status').textContent = "❌ " + (data.error || "Error");
                 }
             } catch (error) {
                 document.getElementById('status').textContent = "❌ Error de conexión";
@@ -173,8 +189,10 @@
         window.addEventListener('load', () => {
             const urlParams = new URLSearchParams(window.location.search);
             const step = urlParams.get('step');
-            if (step && parseInt(step) > 0) {
-                currentStep = parseInt(step) - 1;
+            const token = urlParams.get('token');
+            if (step && token && parseInt(step) > 0) {
+                sessionToken = token;
+                currentStep = parseInt(step);
                 document.getElementById('counter').textContent = `${currentStep}/${TOTAL_STEPS}`;
                 document.getElementById('progressFill').style.width = ((currentStep / TOTAL_STEPS) * 100) + "%";
                 nextStep();

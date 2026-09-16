@@ -90,12 +90,25 @@
         const BACKEND_URL = "https://script-49pe.onrender.com";
         let generatedKey = "";
 
+        // Lee el token de la URL (viene desde el flujo principal)
+        const urlParams = new URLSearchParams(window.location.search);
+        const sessionToken = urlParams.get('token') || "";
+
+        if (!sessionToken) {
+            document.getElementById('status').textContent = "⚠️ Falta el token. Vuelve a empezar.";
+            document.getElementById('btnGenerate').disabled = true;
+        }
+
         async function generateKey() {
             document.getElementById('btnGenerate').disabled = true;
             document.getElementById('status').textContent = "⏳ Generando...";
 
             try {
-                const response = await fetch(`${BACKEND_URL}/api/generate-key`, { method: 'POST' });
+                const response = await fetch(`${BACKEND_URL}/api/generate-key`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ token: sessionToken })
+                });
                 const data = await response.json();
 
                 if (data.key) {

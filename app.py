@@ -5,10 +5,9 @@ import secrets
 import hashlib
 import requests
 from datetime import datetime, timedelta
-from flask import Flask, jsonify, request, session, send_from_directory
+from flask import Flask, jsonify, request, send_from_directory
 
 app = Flask(__name__)
-app.secret_key = os.environ.get("FLASK_SECRET_KEY", secrets.token_hex(32))
 
 # ==================== CONFIGURACIÓN ====================
 CUTY_API_KEY = os.environ.get("CUTY_API_KEY")
@@ -19,10 +18,21 @@ GITHUB_PATH = os.environ.get("GITHUB_PATH", "main/users.json")
 CUTY_API_URL = "https://cuty.io/api"
 PUBLIC_URL = "https://script-49pe.onrender.com"
 
+# Almacén temporal en memoria: {token: {"pasos": N, "creado": datetime}}
+sesiones_temporales = {}
+
 # ==================== FUNCIONES AUXILIARES ====================
 
 def hash_password(password):
     return hashlib.sha256(password.encode()).hexdigest()
+
+def limpiar_sesiones_viejas():
+    """Elimina sesiones con más de 2 horas."""
+    ahora = datetime.now()
+    expirados = [k for k, v in sesiones_temporales.items()
+                 if (ahora - v["creado"]) > timedelta(hours=2)]
+    for k in expirados:
+        del sesiones_temporales[k]
 
 def generar_key_temporal():
     usuario = "DEX_" + secrets.token_hex(3).upper()
@@ -99,29 +109,55 @@ def key_page():
 def status():
     return "Backend Dexter Modz activo ✅"
 
+@app.route("/api/start")
+def start_process():
+    """Inicia una nueva sesión y devuelve un token."""
+    limpiar_sesiones_viejas()
+    token = secrets.token_urlsafe(16)
+    sesiones_temporales[token] = {
+        "pasos": 0,
+        "creado": datetime.now()
+    }
+    return jsonify({"token": token})
+
 @app.route("/api/step/<int:step>")
 def get_short_link(step):
     if step < 1 or step > 10:
         return jsonify({"error": "Paso inválido"}), 400
-    current = session.get("current_step", 0)
-    if step > current + 1:
+
+    token = request.args.get("token")
+    if not token or token not in sesiones_temporales:
+        return jsonify({"error": "Sesión inválida. Vuelve a empezar."}), 403
+
+    sesion = sesiones_temporales[token]
+    if step > sesion["pasos"] + 1:
         return jsonify({"error": "Debes completar los pasos en orden"}), 403
-    session["current_step"] = step
-    destino = f"{PUBLIC_URL}/?step={step}"
+
+    sesion["pasos"] = step
+
+    # El destino incluye el token para que el backend sepa quién vuelve
+    destino = f"{PUBLIC_URL}/?step={step}&token={token}"
     short_url = generar_enlace_cuty(destino)
     if short_url:
-        return jsonify({"url": short_url, "step": step})
+        return jsonify({"url": short_url, "step": step, "token": token})
     return jsonify({"error": "No se pudo generar el acortador"}), 500
 
 @app.route("/api/generate-key", methods=["POST"])
 def generate_key():
-    current = session.get("current_step", 0)
-    if current < 10:
+    data = request.get_json() or {}
+    token = data.get("token")
+
+    if not token or token not in sesiones_temporales:
+        return jsonify({"error": "Sesión inválida"}), 403
+
+    sesion = sesiones_temporales[token]
+    if sesion["pasos"] < 10:
         return jsonify({"error": "Debes completar los 10 pasos primero"}), 403
+
     key_data = generar_key_temporal()
     success, result = actualizar_users_json(key_data)
     if success:
-        session.pop("current_step", None)
+        del sesiones_temporales[token]
         return jsonify({
             "key": f"{key_data['usuario']}:{key_data['password']}",
             "usuario": key_data["usuario"],
