@@ -23,6 +23,15 @@
       "device_locked": true,
       "created": "2026-08-31T14:33:28.103654",
       "expiration": "1"
+    },
+    "DEX_E4F795": {
+      "password": "87e6c9b231486ac7b4770fd34db3663a0d91f0f9a810ad61a360ebe62aec3584",
+      "role": "user",
+      "device_id": "",
+      "device_locked": false,
+      "created": "2026-09-16T01:14:43.554706",
+      "expira_en": "2026-09-16T02:14:43.554706",
+      "temporal": true
     }
   }
 }
