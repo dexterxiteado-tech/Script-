@@ -94,6 +94,15 @@
       "created": "2026-09-22T15:37:23.114434",
       "expira_en": "2026-09-22T16:37:23.114434",
       "temporal": true
+    },
+    "DEX_B277E7": {
+      "password": "e153af1ac0ed25b46804e09de65fa7334a94a841269ce066fe95605008ead6da",
+      "role": "user",
+      "device_id": "",
+      "device_locked": false,
+      "created": "2026-09-22T16:20:06.132796",
+      "expira_en": "2026-09-22T17:20:06.132796",
+      "temporal": true
     }
   }
 }
