@@ -50,6 +50,14 @@
       "created": "2026-09-22T05:35:39.138073",
       "expira_en": "2026-09-22T06:35:39.138073",
       "temporal": true
+    },
+    "1234": {
+      "password": "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
+      "role": "user",
+      "device_id": "",
+      "device_locked": true,
+      "created": "2026-09-22T05:49:11.473571",
+      "expiration": "1h"
     }
   }
 }
