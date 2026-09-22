@@ -103,6 +103,15 @@
       "created": "2026-09-22T16:20:06.132796",
       "expira_en": "2026-09-22T17:20:06.132796",
       "temporal": true
+    },
+    "DEX_03DB19": {
+      "password": "d561474d91001f71795244c0ff341a8f1ececc0edd4459e7218accd2cbc80508",
+      "role": "user",
+      "device_id": "",
+      "device_locked": false,
+      "created": "2026-09-22T17:45:08.914323",
+      "expira_en": "2026-09-22T18:45:08.914323",
+      "temporal": true
     }
   }
 }
