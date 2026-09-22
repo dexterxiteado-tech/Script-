@@ -54,7 +54,7 @@
     "1234": {
       "password": "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
       "role": "user",
-      "device_id": "",
+      "device_id": "u0_a2768",
       "device_locked": true,
       "created": "2026-09-22T05:49:11.473571",
       "expiration": "1h"
