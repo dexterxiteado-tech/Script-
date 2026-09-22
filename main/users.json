@@ -41,6 +41,15 @@
       "created": "2026-09-16T03:25:13.638963",
       "expira_en": "2026-09-16T04:25:13.638963",
       "temporal": true
+    },
+    "DEX_931CA4": {
+      "password": "c852ee97207b6d2adc9df4be24ec068250d34b663d192f4079a22b18cd057739",
+      "role": "user",
+      "device_id": "",
+      "device_locked": false,
+      "created": "2026-09-22T05:35:39.138073",
+      "expira_en": "2026-09-22T06:35:39.138073",
+      "temporal": true
     }
   }
 }
