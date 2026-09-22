@@ -58,6 +58,15 @@
       "device_locked": true,
       "created": "2026-09-22T05:49:11.473571",
       "expiration": "1h"
+    },
+    "DEX_62DF90": {
+      "password": "566bca03bfa41a64dde55b9b8d49359c61a26f922407e9412a0928222f8c9efb",
+      "role": "user",
+      "device_id": "",
+      "device_locked": false,
+      "created": "2026-09-22T13:19:27.378052",
+      "expira_en": "2026-09-22T14:19:27.378052",
+      "temporal": true
     }
   }
 }
