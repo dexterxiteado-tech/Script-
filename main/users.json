@@ -120,6 +120,15 @@
       "device_locked": true,
       "created": "2026-09-24T19:17:02.498896",
       "expiration": "permanent"
+    },
+    "DEX_F068A4": {
+      "password": "8de70f1e0c6dabd3bcf7d41fdf0e05513cb428bfeac4d350959654e0b60f4913",
+      "role": "user",
+      "device_id": "",
+      "device_locked": false,
+      "created": "2026-09-25T05:12:35.588730",
+      "expira_en": "2026-09-25T06:12:35.588730",
+      "temporal": true
     }
   }
 }
