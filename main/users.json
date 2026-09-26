@@ -155,6 +155,15 @@
       "created": "2026-09-26T17:43:26.264145",
       "expira_en": "2026-09-26T18:43:26.264145",
       "temporal": true
+    },
+    "DEX_57FE7C": {
+      "password": "b1955daac524203a685e0dc86b09b952b25e204e896b28850402d734c2f47181",
+      "role": "user",
+      "device_id": "",
+      "device_locked": false,
+      "created": "2026-09-26T20:05:12.167508",
+      "expira_en": "2026-09-26T21:05:12.167508",
+      "temporal": true
     }
   }
 }
