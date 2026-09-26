@@ -129,6 +129,14 @@
       "created": "2026-09-25T05:12:35.588730",
       "expira_en": "2026-09-25T06:12:35.588730",
       "temporal": true
+    },
+    "ALEJO_MODZ": {
+      "password": "8c80dbb0320e9846fbc654a4e8050bb888823f738fb77d481f8b39b581820080",
+      "role": "user",
+      "device_id": "",
+      "device_locked": true,
+      "created": "2026-09-26T11:05:15.119388",
+      "expiration": "1"
     }
   }
 }
