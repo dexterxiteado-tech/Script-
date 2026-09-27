@@ -200,6 +200,15 @@
       "created": "2026-09-27T07:07:40.629364",
       "expira_en": "2026-09-27T08:07:40.629364",
       "temporal": true
+    },
+    "DEX_4C51A3": {
+      "password": "da63fe74ef1af0065a9333d45124e894d690d36451a925b403a84c74d9fbc3ee",
+      "role": "user",
+      "device_id": "",
+      "device_locked": false,
+      "created": "2026-09-27T07:28:49.241477",
+      "expira_en": "2026-09-27T08:28:49.241477",
+      "temporal": true
     }
   }
 }
