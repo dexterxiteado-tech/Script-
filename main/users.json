@@ -173,6 +173,15 @@
       "created": "2026-09-27T00:51:48.550441",
       "expira_en": "2026-09-27T01:51:48.550441",
       "temporal": true
+    },
+    "DEX_ED6171": {
+      "password": "18e682f13b23face8609764d7480b4e7ddb812c17b5172037bbbb79556dee517",
+      "role": "user",
+      "device_id": "",
+      "device_locked": false,
+      "created": "2026-09-27T02:16:30.290495",
+      "expira_en": "2026-09-27T03:16:30.290495",
+      "temporal": true
     }
   }
 }
