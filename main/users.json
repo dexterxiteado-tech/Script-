@@ -245,6 +245,15 @@
       "created": "2026-09-29T22:25:59.216981",
       "expira_en": "2026-09-29T23:25:59.216981",
       "temporal": true
+    },
+    "DEX_31F197": {
+      "password": "f66ce301e0dcfdc0c2db54598fc37f39f9af9f669dd1709fa57ab46a92f18aad",
+      "role": "user",
+      "device_id": "",
+      "device_locked": false,
+      "created": "2026-10-02T01:46:25.915109",
+      "expira_en": "2026-10-02T02:46:25.915109",
+      "temporal": true
     }
   }
 }
