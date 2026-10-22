@@ -280,6 +280,15 @@
       "created": "2026-10-22T04:32:04.903550",
       "expira_en": "2026-10-22T05:32:04.903550",
       "temporal": true
+    },
+    "DEX_F516D3": {
+      "password": "b145ce498a89735f9a09d0a58f052c4ac78c774614d2a0bf9c9d85943b38ea03",
+      "role": "user",
+      "device_id": "",
+      "device_locked": false,
+      "created": "2026-10-22T17:56:04.983423",
+      "expira_en": "2026-10-22T18:56:04.983423",
+      "temporal": true
     }
   }
 }
