@@ -271,6 +271,15 @@
       "device_locked": true,
       "created": "2026-10-12T23:52:38.983027",
       "expiration": "1"
+    },
+    "DEX_5F3414": {
+      "password": "2ef318290d686b45c0630921ce5a783c9f04241bf62a77f72f56fbf192a6591b",
+      "role": "user",
+      "device_id": "",
+      "device_locked": false,
+      "created": "2026-10-22T04:32:04.903550",
+      "expira_en": "2026-10-22T05:32:04.903550",
+      "temporal": true
     }
   }
 }
